@@ -1,2 +1,2 @@
-github "erikdoe/ocmock" 
+github "wearezeta/ocmock" 
 github "wireapp/wire-ios-system" ~> 14.0
