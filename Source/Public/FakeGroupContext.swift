@@ -20,13 +20,13 @@
 import Foundation
 import ZMCSystem
 
-open class FakeGroupContext: NSObject, ZMSGroupQueue {
+public class FakeGroupContext: NSObject, ZMSGroupQueue {
 
-    open let dispatchGroup: ZMSDispatchGroup!
+    public let dispatchGroup: ZMSDispatchGroup!
     fileprivate let queue: DispatchQueue!
     
-    open static let mainContext = FakeGroupContext(queue: DispatchQueue.main, group: ZMSDispatchGroup(label: "FakeGroupContext mainContext"))
-    open static let sycnContext = FakeGroupContext(queue: DispatchQueue(label: "FakeGroupContext syncContext"), group: ZMSDispatchGroup(label: "FakeSyncContext"))
+    public static let mainContext = FakeGroupContext(queue: DispatchQueue.main, group: ZMSDispatchGroup(label: "FakeGroupContext mainContext"))
+    public static let sycnContext = FakeGroupContext(queue: DispatchQueue(label: "FakeGroupContext syncContext"), group: ZMSDispatchGroup(label: "FakeSyncContext"))
     
     public init(queue: DispatchQueue, group: ZMSDispatchGroup) {
         self.queue = queue
@@ -37,7 +37,7 @@ open class FakeGroupContext: NSObject, ZMSGroupQueue {
         self.init(queue: DispatchQueue(label: "FakeGroupContextPrivateQueue-\(arc4random()%1000)"), group: ZMSDispatchGroup(label: "FakeGroupContext"))
     }
     
-    open func performGroupedBlock(_ block: @escaping ()->()) {
+    public func performGroupedBlock(_ block: @escaping ()->()) {
         dispatchGroup.async(on: queue, block: block);
     }
 
