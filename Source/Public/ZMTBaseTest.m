@@ -233,6 +233,7 @@
 
 - (BOOL)waitForAllGroupsToBeEmptyWithTimeout:(NSTimeInterval)timeout;
 {
+    NSLog(@"--- waitForAllGroupsToBeEmptyWithTimeout:");
     NSArray *groups = [self.allDispatchGroups copy];
     NSMutableArray *remaining = groups.mutableCopy;
     
@@ -242,10 +243,10 @@
     
     __block NSUInteger waitCount = groups.count;
     for (ZMSDispatchGroup *g in groups) {
-        NSLog(@"waiting for %@", g.label);
+        NSLog(@"waiting for %@ - %@", g.label, g);
         
         [g notifyOnQueue:dispatch_get_main_queue() block:^{
-            NSLog(@"finished waiting for %@", g.label);
+            NSLog(@"finished waiting for %@ - %@", g.label, g);
             [remaining removeObject:g];
             --waitCount;
         }];
@@ -260,7 +261,7 @@
         @throw exception;
     }
     if (waitCount > 0) {
-        NSLog(@"Aborted still waiting for %@", [remaining.firstObject label]);
+        NSLog(@"Aborted still waiting for %@ - %@", [remaining.firstObject label], remaining.firstObject);
     }
     PrintTimeoutWarning(self, timeout, -[start timeIntervalSinceNow]);
     return (waitCount == 0);
