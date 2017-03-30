@@ -234,6 +234,7 @@
 - (BOOL)waitForAllGroupsToBeEmptyWithTimeout:(NSTimeInterval)timeout;
 {
     NSArray *groups = [self.allDispatchGroups copy];
+    NSMutableArray *remaining = groups.mutableCopy;
     
     NSDate * const start = [NSDate date];
     NSTimeInterval timeinterval2 = [self.class timeToUseForOriginalTime:timeout];
@@ -245,6 +246,7 @@
         
         [g notifyOnQueue:dispatch_get_main_queue() block:^{
             NSLog(@"finished waiting for %@", g.label);
+            [remaining removeObject:g];
             --waitCount;
         }];
     }
@@ -258,7 +260,7 @@
         @throw exception;
     }
     if (waitCount > 0) {
-        NSLog(@"Aborted still waiting for %@ groups", @(waitCount));
+        NSLog(@"Aborted still waiting for %@", remaining);
     }
     PrintTimeoutWarning(self, timeout, -[start timeIntervalSinceNow]);
     return (waitCount == 0);
