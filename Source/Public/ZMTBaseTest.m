@@ -241,7 +241,10 @@
     
     __block NSUInteger waitCount = groups.count;
     for (ZMSDispatchGroup *g in groups) {
+        NSLog(@"waiting for %@", g.label);
+        
         [g notifyOnQueue:dispatch_get_main_queue() block:^{
+            NSLog(@"finished waiting for %@", g.label);
             --waitCount;
         }];
     }
@@ -253,6 +256,9 @@
         }
     } @catch (NSException *exception) {
         @throw exception;
+    }
+    if (waitCount > 0) {
+        NSLog(@"Aborted still waiting for %@ groups", @(waitCount));
     }
     PrintTimeoutWarning(self, timeout, -[start timeIntervalSinceNow]);
     return (waitCount == 0);
