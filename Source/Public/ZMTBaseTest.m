@@ -260,7 +260,7 @@
         @throw exception;
     }
     if (waitCount > 0) {
-        NSLog(@"Aborted still waiting for %@", remaining);
+        NSLog(@"Aborted still waiting for %@", [remaining.firstObject label]);
     }
     PrintTimeoutWarning(self, timeout, -[start timeIntervalSinceNow]);
     return (waitCount == 0);
