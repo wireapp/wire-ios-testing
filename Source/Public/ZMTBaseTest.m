@@ -261,7 +261,12 @@
         @throw exception;
     }
     if (waitCount > 0) {
-        NSLog(@"Aborted still waiting for %@ - %@", [remaining.firstObject label], remaining.firstObject);
+        for (ZMSDispatchGroup *group in remaining) {
+            NSLog(@"Aborted still waiting for %@ - %@", group.label, group);
+            NSLog(@"Open stack traces");
+            [group.logs.allValues componentsJoinedByString:@"\n\n"];
+        }
+        
     }
     PrintTimeoutWarning(self, timeout, -[start timeIntervalSinceNow]);
     return (waitCount == 0);
