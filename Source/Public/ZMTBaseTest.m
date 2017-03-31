@@ -263,8 +263,8 @@
     if (waitCount > 0) {
         for (ZMSDispatchGroup *group in remaining) {
             NSLog(@"Aborted still waiting for %@ - %@", group.label, group);
-            NSLog(@"Open stack traces");
-            [group.logs.allValues componentsJoinedByString:@"\n\n"];
+            NSLog(@"Open stack traces:");
+            NSLog(@"%@",[group.logs.allValues componentsJoinedByString:@"\n\n"]);
         }
         
     }
