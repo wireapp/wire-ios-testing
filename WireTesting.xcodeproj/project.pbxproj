@@ -30,12 +30,11 @@
 		09A218011B78DFAF0076547A /* ZMTFailureRecorder.m in Sources */ = {isa = PBXBuildFile; fileRef = 09A217F21B78DFAF0076547A /* ZMTFailureRecorder.m */; };
 		09A218021B78DFAF0076547A /* ZMTSwiftHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09A217F31B78DFAF0076547A /* ZMTSwiftHelpers.swift */; };
 		09A218041B78E01A0076547A /* FakeGroupContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09A218031B78E01A0076547A /* FakeGroupContext.swift */; };
+		5442DE6C1E92767E00D2F33D /* WireSystem.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5442DE6B1E92767E00D2F33D /* WireSystem.framework */; };
 		5454E1441B73A01800F131F8 /* ZMTesting.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 096AD7BB1B68D41D00E007A8 /* ZMTesting.framework */; };
 		5454E1451B73A02200F131F8 /* OCMock.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 096AD7ED1B68D8F900E007A8 /* OCMock.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		5454E1461B73A02A00F131F8 /* ZMCSystem.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 54AD999E1B7376C2009BD606 /* ZMCSystem.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		5454E14A1B73A09100F131F8 /* ZMTExpectationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5454E1491B73A09100F131F8 /* ZMTExpectationTests.swift */; };
 		54AD999D1B737699009BD606 /* OCMock.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 096AD7ED1B68D8F900E007A8 /* OCMock.framework */; };
-		54AD999F1B7376C2009BD606 /* ZMCSystem.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 54AD999E1B7376C2009BD606 /* ZMCSystem.framework */; };
 		54AFD7E11CB6986A0090E33A /* 1900x1500.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 54AFD7DB1CB698690090E33A /* 1900x1500.jpg */; };
 		54AFD7E21CB6986A0090E33A /* animated.gif in Resources */ = {isa = PBXBuildFile; fileRef = 54AFD7DC1CB698690090E33A /* animated.gif */; };
 		54AFD7E31CB6986A0090E33A /* Lorem Ipsum.txt in Resources */ = {isa = PBXBuildFile; fileRef = 54AFD7DD1CB698690090E33A /* Lorem Ipsum.txt */; };
@@ -69,7 +68,6 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				5454E1461B73A02A00F131F8 /* ZMCSystem.framework in CopyFiles */,
 				5454E1451B73A02200F131F8 /* OCMock.framework in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -110,6 +108,7 @@
 		09F1863D1B6903A4007A3DA6 /* ZMTesting-ios.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "ZMTesting-ios.xcconfig"; sourceTree = "<group>"; };
 		09F1863E1B6903A4007A3DA6 /* ZMTesting-osx.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "ZMTesting-osx.xcconfig"; sourceTree = "<group>"; };
 		09F1863F1B6903A4007A3DA6 /* ZMTesting.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = ZMTesting.xcconfig; sourceTree = "<group>"; };
+		5442DE6B1E92767E00D2F33D /* WireSystem.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WireSystem.framework; path = Carthage/Build/iOS/WireSystem.framework; sourceTree = "<group>"; };
 		5452E5351B73745B00436228 /* ios-test-host.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "ios-test-host.xcconfig"; sourceTree = "<group>"; };
 		5452E5361B73745B00436228 /* ios-test-target.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "ios-test-target.xcconfig"; sourceTree = "<group>"; };
 		5452E5371B73745B00436228 /* ios.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = ios.xcconfig; sourceTree = "<group>"; };
@@ -125,7 +124,6 @@
 		5452E5421B73745B00436228 /* warnings.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = warnings.xcconfig; sourceTree = "<group>"; };
 		5454E1471B73A09100F131F8 /* ZMTesting-iosTests-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ZMTesting-iosTests-Bridging-Header.h"; sourceTree = "<group>"; };
 		5454E1491B73A09100F131F8 /* ZMTExpectationTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZMTExpectationTests.swift; sourceTree = "<group>"; };
-		54AD999E1B7376C2009BD606 /* ZMCSystem.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ZMCSystem.framework; path = Carthage/Build/iOS/ZMCSystem.framework; sourceTree = "<group>"; };
 		54AFD7DB1CB698690090E33A /* 1900x1500.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 1900x1500.jpg; sourceTree = "<group>"; };
 		54AFD7DC1CB698690090E33A /* animated.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = animated.gif; sourceTree = "<group>"; };
 		54AFD7DD1CB698690090E33A /* Lorem Ipsum.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "Lorem Ipsum.txt"; sourceTree = "<group>"; };
@@ -152,7 +150,7 @@
 			files = (
 				099181F21B68F0420022D208 /* libz.dylib in Frameworks */,
 				54AD999D1B737699009BD606 /* OCMock.framework in Frameworks */,
-				54AD999F1B7376C2009BD606 /* ZMCSystem.framework in Frameworks */,
+				5442DE6C1E92767E00D2F33D /* WireSystem.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -237,7 +235,7 @@
 		096AD7EC1B68D8DF00E007A8 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				54AD999E1B7376C2009BD606 /* ZMCSystem.framework */,
+				5442DE6B1E92767E00D2F33D /* WireSystem.framework */,
 				099182221B68F1960022D208 /* libz.dylib */,
 				099181F11B68F0420022D208 /* libz.dylib */,
 				096AD7ED1B68D8F900E007A8 /* OCMock.framework */,
