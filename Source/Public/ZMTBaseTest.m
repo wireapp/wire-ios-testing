@@ -19,7 +19,9 @@
 
 @import WireSystem;
 @import OCMock;
-@import MobileCoreServices;
+#if TARGET_OS_IPHONE || TARGET_IPHONE_SIMULATOR
+    @import MobileCoreServices;
+#endif 
 
 #import "ZMTBaseTest.h"
 #import "ZMTExpectation.h"
