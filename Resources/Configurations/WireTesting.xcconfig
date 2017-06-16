@@ -16,6 +16,4 @@
 // along with this program. If not, see http://www.gnu.org/licenses/.
 //
 
-
-APPLICATION_EXTENSION_API_ONLY = YES
 PRODUCT_NAME = WireTesting

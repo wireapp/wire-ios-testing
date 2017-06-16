@@ -44,8 +44,10 @@ FRAMEWORK_VERSION = A
 // Linking
 //
 OTHER_LDFLAGS = -ObjC
-FRAMEWORK_SEARCH_PATHS[sdk=macosx*] = $(PROJECT_DIR)/Carthage/Build/Mac $(PLATFORM_DIR)/Developer/Library/Frameworks
-FRAMEWORK_SEARCH_PATHS[sdk=iphoneos*] = $(PROJECT_DIR)/Carthage/Build/iOS $(PLATFORM_DIR)/Developer/Library/Frameworks
+CARTHAGE_FOLDER[sdk=macosx*] = $(PROJECT_DIR)/Carthage/Build/Mac
+CARTHAGE_FOLDER[sdk=iphoneos*] = $(PROJECT_DIR)/Carthage/Build/iOS
+CARTHAGE_FOLDER[sdk=iphonesimulator*] = $(PROJECT_DIR)/Carthage/Build/iOS
+FRAMEWORK_SEARCH_PATHS = $(CARTHAGE_FOLDER) $(PLATFORM_DIR)/Developer/Library/Frameworks
 
 // Swift
 //
