@@ -1,13 +1,12 @@
 machine:
   xcode:
     version: "8.3"
-  environment:
-    # Used for compatibility with scripts made for Jenkins
-    WORKSPACE: $(pwd) 
-    JENKINS_HOME: WORKSPACE
 
 checkout:
   post:
+    - curl -O https://raw.githubusercontent.com/wireapp/wire-ios-shared-resources/feature/ci-improvements/environment.sh
+    # Setup all needed environment variables
+    - source environment.sh
     # Copy the code to a subdirectory
     - mkdir -p "${CIRCLE_PROJECT_REPONAME}"
     - rsync -a . "${CIRCLE_PROJECT_REPONAME}/" --exclude "${CIRCLE_PROJECT_REPONAME}"
