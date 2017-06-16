@@ -44,7 +44,12 @@ FRAMEWORK_VERSION = A
 // Linking
 //
 OTHER_LDFLAGS = -ObjC
-FRAMEWORK_SEARCH_PATHS[sdk=iphoneos*] = $(inherited) $(PROJECT_DIR)/Carthage/Build/iOS $(PLATFORM_DIR)/Developer/Library/Frameworks
-FRAMEWORK_SEARCH_PATHS[sdk=macosx*] = $(inherited) $(PROJECT_DIR)/Carthage/Build/Mac $(PLATFORM_DIR)/Developer/Library/Frameworks
+FRAMEWORK_SEARCH_PATHS[sdk=macosx*] = $(PROJECT_DIR)/Carthage/Build/Mac $(PLATFORM_DIR)/Developer/Library/Frameworks
+FRAMEWORK_SEARCH_PATHS[sdk=iphoneos*] = $(PROJECT_DIR)/Carthage/Build/iOS $(PLATFORM_DIR)/Developer/Library/Frameworks
 
+// Swift
+//
+SWIFT_VERSION = 3.0
+EMBEDDED_CONTENT_CONTAINS_SWIFT = YES
+LD_RUNPATH_SEARCH_PATHS = $(inherited) @loader_path/Frameworks @loader_path/../Frameworks @executable_path/Frameworks @executable_path/../Frameworks
 
