@@ -3,12 +3,9 @@ machine:
     version: "8.3"
   environment:
     DEPENDENCIES_BASE_URL: "https://raw.githubusercontent.com/wireapp/wire-ios-shared-resources/feature/ci-improvements"
+    DANGER_GITHUB_API_TOKEN: $GITHUB_ACCESS_TOKEN
 checkout:
   post:
-    # Download environment variables setup script
-    - curl -O "${DEPENDENCIES_BASE_URL}/environment.sh"
-    # Setup all needed environment variables
-    - source environment.sh
     # Download other scripts
     - curl -O "${DEPENDENCIES_BASE_URL}/dependencies.sh"
     - curl -O "${DEPENDENCIES_BASE_URL}/build.sh"
