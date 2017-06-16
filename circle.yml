@@ -17,13 +17,13 @@ checkout:
 
 dependencies:
   override:
-    - ./dependencies.sh
+    - sh dependencies.sh
   cache_directories:
     - Carthage/Build
     - ~/.gem
 
 test:
   override:
-    - ./build.sh
-    - ./test.sh
-    - ./post_test.sh
+    - sh build.sh
+    - sh test.sh
+    - sh post_test.sh
