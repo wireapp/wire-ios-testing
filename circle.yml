@@ -25,4 +25,5 @@ test:
   override:
     - sh build.sh
     - sh test.sh
+  post:
     - sh post_test.sh
