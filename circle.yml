@@ -3,7 +3,6 @@ machine:
     version: "8.3"
   environment:
     DEPENDENCIES_BASE_URL: "https://raw.githubusercontent.com/wireapp/wire-ios-shared-resources/feature/ci-improvements"
-    DANGER_GITHUB_API_TOKEN: $GITHUB_ACCESS_TOKEN
 checkout:
   post:
     # Download other scripts
