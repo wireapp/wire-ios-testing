@@ -26,7 +26,3 @@ test:
     - sh build.sh
     - sh test.sh
     - sh post_test.sh
-  post:
-    - mkdir "${CIRCLE_ARTIFACTS}/scripts"
-    - cp *.sh "${CIRCLE_ARTIFACTS}/scripts"
-    - cp .circlerc "${CIRCLE_ARTIFACTS}/scripts"
