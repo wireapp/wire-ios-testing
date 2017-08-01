@@ -67,9 +67,7 @@ typedef BOOL(^VerificationBlock)(void);
 /// Wait for all dispatch groups to be empty
 - (BOOL)waitForAllGroupsToBeEmptyWithTimeout:(NSTimeInterval)timeout ZM_MUST_USE_RETURN;
 
-- (BOOL)waitForCustomExpectationsWithTimeout:(NSTimeInterval)timeout handler:(nullable XCWaitCompletionHandler)handlerOrNil ZM_MUST_USE_RETURN;
-- (BOOL)waitForCustomExpectationsWithTimeout:(NSTimeInterval)timeout ZM_MUST_USE_RETURN;
-- (BOOL)verifyAllExpectationsNow ZM_MUST_USE_RETURN;
+- (void)waitForExpectationsWithTimeout:(NSTimeInterval)timeout;
 
 /// perform operations while not considering ZMLogErrors as test failure
 - (void)performIgnoringZMLogError:(nonnull void(^)(void))block;

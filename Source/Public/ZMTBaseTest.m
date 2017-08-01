@@ -21,7 +21,6 @@
 @import OCMock;
 
 #import "ZMTBaseTest.h"
-#import "ZMTExpectation.h"
 #import <libkern/OSAtomic.h>
 #import <WireTesting/WireTesting-Swift.h>
 #import <CommonCrypto/CommonCrypto.h>
@@ -31,7 +30,6 @@
 
 @property (nonatomic) BOOL ignoreLogErrors; ///< if false, will fail on ZMLogError or ZMLogWarn
 @property (nonatomic) NSMutableArray *mocksToBeVerified;
-@property (nonatomic) NSMutableArray *expectations; // Beta3Workaround
 @property (nonatomic) LogHookToken *logHookToken;
 
 @property (nonatomic, strong) id<ZMSGroupQueue> innerFakeUIContext;
@@ -111,8 +109,6 @@
         _dispatchGroup = [ZMSDispatchGroup groupWithLabel:@"ZMTBaseTest"];
     }
     
-    self.expectations = nil;
-    
     [self registerLogErrorHook];
     
     self.innerFakeUIContext = [FakeGroupContext main];
@@ -129,7 +125,6 @@
     self.innerFakeUIContext = nil;
     self.innerFakeSyncContext = nil;
     _mocksToBeVerified = nil;
-    self.expectations = nil;
     [super tearDown];
 }
 
@@ -194,53 +189,6 @@
     [[NSRunLoop currentRunLoop] runUntilDate:[NSDate dateWithTimeIntervalSinceNow:0.05]];
 }
 
-- (XCTestExpectation *)expectationWithDescription:(NSString *)description;
-{
-    ZMTExpectation *expectation = [[ZMTExpectation alloc] init];
-    expectation.name = description;
-    
-    if (self.expectations == nil) {
-        self.expectations = [NSMutableArray arrayWithObject:expectation];
-    } else {
-        [self.expectations addObject:expectation];
-    }
-    
-    return (XCTestExpectation *) expectation;
-}
-
-- (XCTestExpectation *)expectationForNotification:(NSString *)notificationName object:(id)objectToObserve handler:(XCNotificationExpectationHandler)handlerOrNil;
-{
-    ZMTNotificationExpectation *expectation = [[ZMTNotificationExpectation alloc] init];
-    ZM_ALLOW_MISSING_SELECTOR([[NSNotificationCenter defaultCenter] addObserver:expectation selector:@selector(observe:) name:notificationName object:objectToObserve]);
-    expectation.handler = handlerOrNil;
-    expectation.name = notificationName;
-    
-    if (self.expectations == nil) {
-        self.expectations = [NSMutableArray arrayWithObject:expectation];
-    } else {
-        [self.expectations addObject:expectation];
-    }
-    
-    return (XCTestExpectation *) expectation;
-}
-
-- (XCTestExpectation *)keyValueObservingExpectationForObject:(id)objectToObserve keyPath:(NSString *)keyPath expectedValue:(id)expectedValue;
-{
-    RequireString(expectedValue == nil, "Not implemented");
-    ZMTKeyValueObservingExpectation *expectation = [[ZMTKeyValueObservingExpectation alloc] init];
-    expectation.object = objectToObserve;
-    expectation.keyPath = keyPath;
-    [objectToObserve addObserver:expectation forKeyPath:keyPath options:0 context:(__bridge void *) expectation];
-    
-    if (self.expectations == nil) {
-        self.expectations = [NSMutableArray arrayWithObject:expectation];
-    } else {
-        [self.expectations addObject:expectation];
-    }
-    
-    return (id) expectation;
-}
-
 - (NSArray *)allDispatchGroups;
 {
     return @[self.dispatchGroup, self.fakeSyncContext.dispatchGroup, self.fakeUIContext.dispatchGroup];
@@ -273,36 +221,9 @@
     return (waitCount == 0);
 }
 
-- (BOOL)waitForCustomExpectationsWithTimeout:(NSTimeInterval)timeout handler:(XCWaitCompletionHandler)handlerOrNil;
+- (void)waitForExpectationsWithTimeout:(NSTimeInterval)timeout;
 {
-    NSTimeInterval timeInterval2 = [self.class timeToUseForOriginalTime:timeout];
-    NSDate * const start = [NSDate date];
-    NSDate * const end = [NSDate dateWithTimeIntervalSinceNow:timeInterval2];
-    NSArray *expectations = [self.expectations copy];
-    [self.expectations removeAllObjects];
-    for (ZMTExpectation *e in expectations) {
-        if (! [e waitUntil:end]) {
-            PrintTimeoutWarning(self, timeout, -[start timeIntervalSinceNow]);
-            return NO;
-        }
-    }
-    // reset
-    if (handlerOrNil) {
-        handlerOrNil(nil);
-    }
-    PrintTimeoutWarning(self, timeout, -[start timeIntervalSinceNow]);
-    return YES;
-}
-
-- (BOOL)verifyAllExpectationsNow
-{
-    return [self waitForCustomExpectationsWithTimeout:0];
-}
-
-- (BOOL)waitForCustomExpectationsWithTimeout:(NSTimeInterval)timeout;
-{
-    BOOL result = [self waitForCustomExpectationsWithTimeout:timeout handler:nil];
-    return result;
+    [self waitForExpectationsWithTimeout:timeout handler:nil];
 }
 
 + (NSData *)verySmallJPEGData;
