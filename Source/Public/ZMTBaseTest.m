@@ -221,11 +221,6 @@
     return (waitCount == 0);
 }
 
-- (void)waitForExpectationsWithTimeout:(NSTimeInterval)timeout;
-{
-    [self waitForExpectationsWithTimeout:timeout handler:nil];
-}
-
 + (NSData *)verySmallJPEGData;
 {
     NSURL *imageURL = [[NSBundle bundleForClass:[ZMTBaseTest class]] URLForResource:@"tiny" withExtension:@"jpg"];
