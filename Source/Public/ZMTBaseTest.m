@@ -125,12 +125,14 @@
 {
     [self unregisterLogErrorHook];
     [self verifyMocksNow];
-    _logHookToken = nil;
+    self.logHookToken = nil;
     self.innerFakeUIContext = nil;
     self.innerFakeSyncContext = nil;
-    _mocksToBeVerified = nil;
+    self.mocksToBeVerified = nil;
     self.expectations = nil;
     [super tearDown];
+    XCTAssertEqual([MemoryReferenceDebugger aliveObjects].count, 0u, @"%@", [MemoryReferenceDebugger aliveObjectsDescription]);
+    [MemoryReferenceDebugger reset];
 }
 
 - (id<ZMSGroupQueue>)fakeUIContext {
