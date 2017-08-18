@@ -131,7 +131,7 @@
     self.mocksToBeVerified = nil;
     self.expectations = nil;
     [super tearDown];
-    [ZMTBaseTest performRunLoopTick];
+    [[NSRunLoop currentRunLoop] runUntilDate:[NSDate date]];
     XCTAssertEqual([MemoryReferenceDebugger aliveObjects].count, 0u, @"%@", [MemoryReferenceDebugger aliveObjectsDescription]);
     [MemoryReferenceDebugger reset];
 }
