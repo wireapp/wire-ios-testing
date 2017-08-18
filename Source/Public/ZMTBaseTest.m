@@ -131,7 +131,14 @@
     self.mocksToBeVerified = nil;
     self.expectations = nil;
     [super tearDown];
-    [[NSRunLoop currentRunLoop] runUntilDate:[NSDate date]];
+    [self checkMemoryReferenceDebuggerForLeaks];
+}
+
+- (void)checkMemoryReferenceDebuggerForLeaks {
+    // some objects, like NSManagedObjectContext with concurrency type .mainQueue, will in some
+    // cases enqueue something on the main queue that will hold on to it. So even if every reference is
+    // removed, it won't actually deallocate until the next run loop. This gives it a chance to do it.
+    [[NSRunLoop mainRunLoop] runUntilDate:[NSDate date]];
     XCTAssertEqual([MemoryReferenceDebugger aliveObjects].count, 0u, @"%@", [MemoryReferenceDebugger aliveObjectsDescription]);
     [MemoryReferenceDebugger reset];
 }
