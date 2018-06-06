@@ -130,12 +130,18 @@
     self.innerFakeSyncContext = nil;
     self.mocksToBeVerified = nil;
     self.expectations = nil;
+    [self checkForMemoryLeaksAfterTestClassCompletes];
     [super tearDown];
 }
 
 + (void)tearDown {
-    [self checkForMemoryLeaksAfterTestClassCompletes];
     [super tearDown];
+}
+
+- (void)checkForMemoryLeaksAfterTestClassCompletes
+{
+    NSString *message = [NSString stringWithFormat:@"Leaked: %@", [MemoryReferenceDebugger aliveObjectsDescription]];
+    XCTAssertTrue([MemoryReferenceDebugger aliveObjects].count == 0, @"%@", message);
 }
 
 + (void)checkForMemoryLeaksAfterTestClassCompletes
