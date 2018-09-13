@@ -35,7 +35,8 @@ static atomic_int uuidCounter;
 {
     uuid_t bytes;
     uuid_copy(bytes, uuidBase);
-    int32_t c = atomic_fetch_add_explicit(&uuidCounter, 1, memory_order_relaxed);
+    atomic_fetch_add_explicit(&uuidCounter, 1, memory_order_relaxed);
+    int32_t c = atomic_load(&uuidCounter);
     bytes[14] = (c >> 8) & 0xff;
     bytes[15] = c & 0xff;
     NSUUID *uuid = [[NSUUID alloc] initWithUUIDBytes:bytes];
