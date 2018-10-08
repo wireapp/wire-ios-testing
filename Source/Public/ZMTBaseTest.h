@@ -83,6 +83,8 @@ typedef BOOL(^VerificationBlock)(void);
 /// Returns the data of a medium JPEG image
 + (nonnull NSData *)mediumJPEGData;
 /// Returns the data of a large JPEG image
+- (nonnull NSData *)largeJPEGData;
+/// Returns the data of a large JPEG image
 + (nonnull NSData *)largeJPEGData;
 
 @property (nonatomic, strong, nonnull, readonly) id<ZMSGroupQueue> fakeUIContext;
