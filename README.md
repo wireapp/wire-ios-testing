@@ -16,7 +16,6 @@ This framework is part of Wire iOS SyncEngine. Visit [iOS SyncEngine repository]
 
 The wire-ios-testing framwork compiles some utilities to help with unit / integration tests.
 
-
 ### How to build
 
 This framework is using Carthage to manage its dependencies. To pull the dependencies binaries, `run carthage bootstrap --platform ios`.
