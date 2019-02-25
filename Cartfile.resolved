@@ -1,2 +1,2 @@
 github "wireapp/ocmock" "v3.4.3"
-github "wireapp/wire-ios-system" "fix/delete-deprecated-method"
+github "wireapp/wire-ios-system" "26.0.0"
