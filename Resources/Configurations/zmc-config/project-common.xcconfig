@@ -35,9 +35,9 @@ CODE_SIGN_IDENTITY[sdk=iphoneos*] = iPhone Developer
 
 // Deployment
 //
-IPHONEOS_DEPLOYMENT_TARGET = 8.0
+IPHONEOS_DEPLOYMENT_TARGET = 10.0
 TARGETED_DEVICE_FAMILY = 1,2
-MACOSX_DEPLOYMENT_TARGET = 10.11
+MACOSX_DEPLOYMENT_TARGET = 10.14
 
 DYLIB_INSTALL_NAME_BASE = @rpath
 FRAMEWORK_VERSION = A
@@ -54,7 +54,7 @@ FRAMEWORK_SEARCH_PATHS = $(CARTHAGE_FOLDER) $(PLATFORM_DIR)/Developer/Library/Fr
 
 // Swift
 //
-SWIFT_VERSION = 3.0
+SWIFT_VERSION = 5.0
 ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES
 SWIFT_COMPILATION_MODE = wholemodule
 LD_RUNPATH_SEARCH_PATHS = $(inherited) @loader_path/Frameworks @loader_path/../Frameworks @executable_path/Frameworks @executable_path/../Frameworks
