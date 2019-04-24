@@ -497,7 +497,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 54AD5CFB1EEFEEC00072FC97 /* project-debug.xcconfig */;
 			buildSettings = {
-				SWIFT_SWIFT3_OBJC_INFERENCE = Off;
 			};
 			name = Debug;
 		};
@@ -505,7 +504,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 54AD5CFC1EEFEEC00072FC97 /* project.xcconfig */;
 			buildSettings = {
-				SWIFT_SWIFT3_OBJC_INFERENCE = Off;
 			};
 			name = Release;
 		};
@@ -535,7 +533,6 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "com.wire.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "Tests/WireTesting-iosTests-Bridging-Header.h";
-				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
 		};
