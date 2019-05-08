@@ -1,2 +1,2 @@
 github "wireapp/ocmock" ~> 3.4
-github "wireapp/wire-ios-system" ~> "feature/Swift5"
+github "wireapp/wire-ios-system" ~> 27.0
