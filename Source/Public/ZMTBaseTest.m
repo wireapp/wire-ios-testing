@@ -27,17 +27,6 @@
 #import <CommonCrypto/CommonCrypto.h>
 #import "NSUUID+WireTesting.h"
 
-@interface ZMTBaseTest()
-
-@property (nonatomic) BOOL ignoreLogErrors; ///< if false, will fail on ZMLogError or ZMLogWarn
-@property (nonatomic) NSMutableArray *mocksToBeVerified;
-@property (nonatomic) NSMutableArray *expectations; // Beta3Workaround
-@property (nonatomic) ZMSLogLogHookToken *logHookToken;
-
-@property (nonatomic, strong) id<ZMSGroupQueue> innerFakeUIContext;
-@property (nonatomic, strong) id<ZMSGroupQueue> innerFakeSyncContext;
-
-@end
 
 @implementation ZMTBaseTest
 
@@ -134,17 +123,17 @@
 }
 
 + (void)tearDown {
-    [self checkForMemoryLeaksAfterTestClassCompletes];
+    [ZMTBaseTest checkForMemoryLeaksAfterTestClassCompletes];
     [super tearDown];
 }
 
-+ (void)checkForMemoryLeaksAfterTestClassCompletes
-{
-    if ([MemoryReferenceDebugger aliveObjects].count > 0) {
-        NSLog(@"Leaked: %@", [MemoryReferenceDebugger aliveObjectsDescription]);
-        assert(false);
-    }
-}
+//+ (void)checkForMemoryLeaksAfterTestClassCompletes
+//{
+//    if ([MemoryReferenceDebugger aliveObjects].count > 0) {
+//        NSLog(@"Leaked: %@", [MemoryReferenceDebugger aliveObjectsDescription]);
+//        assert(false);
+//    }
+//}
 
 - (id<ZMSGroupQueue>)fakeUIContext {
     return self.innerFakeUIContext;
