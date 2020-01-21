@@ -90,16 +90,7 @@ typedef BOOL(^VerificationBlock)(void);
 @property (nonatomic, strong, nonnull, readonly) id<ZMSGroupQueue> fakeUIContext;
 @property (nonatomic, strong, nonnull, readonly) id<ZMSGroupQueue> fakeSyncContext;
 
-@property (nonatomic) BOOL ignoreLogErrors; ///< if false, will fail on ZMLogError or ZMLogWarn
-@property (nonatomic) NSMutableArray * _Nullable mocksToBeVerified;
-@property (nonatomic) NSMutableArray * _Nullable expectations; // Beta3Workaround
-@property (nonatomic) ZMSLogLogHookToken * _Nullable logHookToken;
-
-@property (nonatomic, strong, nullable) id<ZMSGroupQueue> innerFakeUIContext;
-@property (nonatomic, strong, nullable) id<ZMSGroupQueue> innerFakeSyncContext;
-
 @end
-
 
 
 @interface ZMTBaseTest (Asserts)
