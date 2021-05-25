@@ -45,7 +45,6 @@
 		54AFD7E81CB699710090E33A /* ZMTTestBaseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54AFD7E71CB699710090E33A /* ZMTTestBaseTests.swift */; };
 		87B0EF5C2139687500CE1931 /* ManagedObjectContextChangesMerger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87B0EF5B2139687500CE1931 /* ManagedObjectContextChangesMerger.swift */; };
 		A9473798265D1D9100BC0089 /* WireSystem.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = A9473797265D1D9100BC0089 /* WireSystem.xcframework */; };
-		A9473799265D1D9100BC0089 /* WireSystem.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = A9473797265D1D9100BC0089 /* WireSystem.xcframework */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		A971FAE123D7477200AB25B4 /* ZMTBaseTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = A971FAE023D7477200AB25B4 /* ZMTBaseTest.swift */; };
 		CE6B7B301C11ED5F00FC4C2E /* ZMMockEntity.m in Sources */ = {isa = PBXBuildFile; fileRef = CE6B7B2C1C11ED5F00FC4C2E /* ZMMockEntity.m */; };
 		CE6B7B321C11ED5F00FC4C2E /* ZMMockEntity2.m in Sources */ = {isa = PBXBuildFile; fileRef = CE6B7B2E1C11ED5F00FC4C2E /* ZMMockEntity2.m */; };
@@ -75,17 +74,6 @@
 			files = (
 				5454E1451B73A02200F131F8 /* OCMock.framework in CopyFiles */,
 			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		A947379A265D1D9100BC0089 /* Embed Frameworks */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = "";
-			dstSubfolderSpec = 10;
-			files = (
-				A9473799265D1D9100BC0089 /* WireSystem.xcframework in Embed Frameworks */,
-			);
-			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXCopyFilesBuildPhase section */
@@ -365,7 +353,6 @@
 				096AD7B71B68D41D00E007A8 /* Frameworks */,
 				096AD7B81B68D41D00E007A8 /* Headers */,
 				096AD7B91B68D41D00E007A8 /* Resources */,
-				A947379A265D1D9100BC0089 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
