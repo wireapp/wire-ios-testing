@@ -31,7 +31,6 @@
 		09A218041B78E01A0076547A /* FakeGroupContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09A218031B78E01A0076547A /* FakeGroupContext.swift */; };
 		166264A7216BB64100300F45 /* large.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 166264A6216BB64000300F45 /* large.jpg */; };
 		16E2561F21089DAE00919DB0 /* XCTestCase+Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16E2561E21089DAE00919DB0 /* XCTestCase+Helpers.swift */; };
-		5454E1441B73A01800F131F8 /* WireTesting.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 096AD7BB1B68D41D00E007A8 /* WireTesting.framework */; };
 		5454E14A1B73A09100F131F8 /* ZMTExpectationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5454E1491B73A09100F131F8 /* ZMTExpectationTests.swift */; };
 		54AFD7E11CB6986A0090E33A /* 1900x1500.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 54AFD7DB1CB698690090E33A /* 1900x1500.jpg */; };
 		54AFD7E21CB6986A0090E33A /* animated.gif in Resources */ = {isa = PBXBuildFile; fileRef = 54AFD7DC1CB698690090E33A /* animated.gif */; };
@@ -43,6 +42,7 @@
 		87B0EF5C2139687500CE1931 /* ManagedObjectContextChangesMerger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87B0EF5B2139687500CE1931 /* ManagedObjectContextChangesMerger.swift */; };
 		A9473798265D1D9100BC0089 /* WireSystem.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = A9473797265D1D9100BC0089 /* WireSystem.xcframework */; };
 		A94A9A23265D40280049F3F6 /* OCMock.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = A94A9A22265D40280049F3F6 /* OCMock.xcframework */; };
+		A94B2335266F9C1200D89927 /* WireTesting.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 096AD7BB1B68D41D00E007A8 /* WireTesting.framework */; };
 		A971FAE123D7477200AB25B4 /* ZMTBaseTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = A971FAE023D7477200AB25B4 /* ZMTBaseTest.swift */; };
 		CE6B7B301C11ED5F00FC4C2E /* ZMMockEntity.m in Sources */ = {isa = PBXBuildFile; fileRef = CE6B7B2C1C11ED5F00FC4C2E /* ZMMockEntity.m */; };
 		CE6B7B321C11ED5F00FC4C2E /* ZMMockEntity2.m in Sources */ = {isa = PBXBuildFile; fileRef = CE6B7B2E1C11ED5F00FC4C2E /* ZMMockEntity2.m */; };
@@ -151,7 +151,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5454E1441B73A01800F131F8 /* WireTesting.framework in Frameworks */,
+				A94B2335266F9C1200D89927 /* WireTesting.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

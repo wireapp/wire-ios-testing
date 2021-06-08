@@ -24,7 +24,7 @@
 
 SDKROOT = iphoneos
 ARCHS[sdk=iphoneos*] = arm64 armv7
-ARCHS[sdk=iphonesimulator*] = x86_64
+ARCHS[sdk=iphonesimulator*] = x86_64 arm64
 VALID_ARCHS[sdk=iphoneos*] = arm64 armv7
 SUPPORTED_PLATFORMS = iphoneos iphonesimulator
 
@@ -46,8 +46,8 @@ FRAMEWORK_VERSION = A
 // Linking
 //
 OTHER_LDFLAGS = -ObjC
-CARTHAGE_FOLDER[sdk=iphoneos*] = $(PROJECT_DIR)/Carthage/Build/iOS
-CARTHAGE_FOLDER[sdk=iphonesimulator*] = $(PROJECT_DIR)/Carthage/Build/iOS
+CARTHAGE_FOLDER[sdk=iphoneos*] = $(PROJECT_DIR)/Carthage/Build
+CARTHAGE_FOLDER[sdk=iphonesimulator*] = $(PROJECT_DIR)/Carthage/Build
 FRAMEWORK_SEARCH_PATHS = $(inherited) $(CARTHAGE_FOLDER) $(PLATFORM_DIR)/Developer/Library/Frameworks
 
 // Swift
