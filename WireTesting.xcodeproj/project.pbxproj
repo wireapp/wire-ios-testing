@@ -507,7 +507,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 09F1863F1B6903A4007A3DA6 /* WireTesting.xcconfig */;
 			buildSettings = {
-				DEVELOPMENT_TEAM = "";
 				ENABLE_TESTING_SEARCH_PATHS = YES;
 				GCC_TREAT_WARNINGS_AS_ERRORS = NO;
 				INFOPLIST_FILE = "$(SRCROOT)/Resources/WireTesting.plist";
