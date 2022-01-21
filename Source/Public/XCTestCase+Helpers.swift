@@ -18,14 +18,14 @@
 
 import Foundation
 
-extension XCTestCase {
+extension Array where Element == DispatchGroup {
     
-    public func waitForGroupsToBeEmpty(_ groups: [DispatchGroup], timeout: TimeInterval = 5) -> Bool {
+    public func waitForGroupsToBeEmpty(timeout: TimeInterval = 5) -> Bool {
         
         let timeoutDate = Date(timeIntervalSinceNow: timeout)
-        var groupCounter = groups.count
+        var groupCounter = count
         
-        groups.forEach { (group) in
+        forEach { (group) in
             group.notify(queue: DispatchQueue.main, execute: {
                 groupCounter -= 1
             })
