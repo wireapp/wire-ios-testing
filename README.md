@@ -16,6 +16,7 @@ This framework is part of Wire iOS SyncEngine. Visit [iOS SyncEngine repository]
 
 The wire-ios-testing framwork compiles some utilities to help with unit / integration tests.
 
+⚠️ **This repository is now part of [wire-ios-mono](https://github.com/wireapp/wire-ios-mono)**
 
 ### How to build
 
